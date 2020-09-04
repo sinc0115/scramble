@@ -32,11 +32,6 @@ function shuffle (src) {
 // COPIES AND SHUFFLES WORDS ARRAY
 const shuffledWords = shuffle(words)
 
-// // TRIGGERS START GAME MODAL
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log('page loaded')
-//   $("#startModal").modal("show")
-// });
 
 // VUE APP BEGINS
 const app = new Vue({
@@ -54,17 +49,6 @@ const app = new Vue({
     noMore: false, // triggered when there are no passes left
     playAgain: false // changes start modal to a play again modal
   },
-  // created: function () {
-  //   //TRIGGERS START GAME MODAL WHEN APP LOADS
-  //   if (this.gameStatus == false) {
-  //     document.addEventListener('DOMContentLoaded', function() {
-  //       console.log('page loaded')
-  //       $("#startModal").modal("show")
-  //     })
-  //   } else if (this.gameStatus) {
-  //     console.log('Game already in session.')
-  //   }
-  // },
   mounted: function () {
 
     const storedScore = localStorage.getItem('score')
@@ -72,6 +56,7 @@ const app = new Vue({
     const storedPass = localStorage.getItem('pass')
     var storedGameStatus = localStorage.getItem('gameStatus')
     const storedShuffledWord = localStorage.getItem('shuffledWord')
+    const storedShuffledWords = localStorage.getItem('shuffledWords')
     const storedAlertResponse = localStorage.getItem('alertResponse')
 
     //// Checks if gameStatus is set to a string, sets the value back to a boolean
@@ -102,6 +87,10 @@ const app = new Vue({
     if (storedShuffledWord) {
       this.shuffledWord = JSON.parse(storedShuffledWord)
       this.shuffledWord = this.shuffledWord
+    }
+    if (storedShuffledWords) {
+      this.shuffledWords = JSON.parse(storedShuffledWords)
+      this.shuffledWords = this.shuffledWords
     }
     if (storedAlertResponse) {
       this.alertResponse = JSON.parse(storedAlertResponse)
@@ -237,6 +226,9 @@ const app = new Vue({
     },
     shuffledWord() {
       localStorage.setItem('shuffledWord', JSON.stringify(this.shuffledWord))
+    },
+    shuffledWords() {
+      localStorage.setItem('shuffledWords', JSON.stringify(this.shuffledWords))
     },
     alertResponse() {
       localStorage.setItem('alertResponse', JSON.stringify(this.alertResponse))
