@@ -1,7 +1,3 @@
-/**********************************************
- * STARTER CODE
- **********************************************/
-
 /**
  * shuffle()
  * Shuffle the contents of an array
@@ -30,9 +26,7 @@ function shuffle (src) {
   return copy
 }
 
-/**********************************************
- * YOUR CODE BELOW
- **********************************************/
+
 // WORDS ARRAY
  const words = ['CURIOUS', 'ELECTRICITY', 'HEADACHE', 'IMAGINATION', 'NUMERATOR', 'PENGUIN', 'SQUAWK', 'REQUIREMENT', 'SOUGHT', 'TOMATOES', 'VEGETABLE', 'PUMPKINS']
 // COPIES AND SHUFFLES WORDS ARRAY
